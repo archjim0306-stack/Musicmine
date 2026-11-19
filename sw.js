@@ -1,5 +1,5 @@
 // Mi Estudio — service worker (app instalable y funciona sin internet, excepto la IA)
-const CACHE = 'mi-estudio-v1';
+const CACHE = 'mi-estudio-v2';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {

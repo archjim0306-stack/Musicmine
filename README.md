@@ -20,23 +20,20 @@ App web instalable (PWA) para crear canciones con IA: escribe o corrige letras p
 
 ## 2. Conectar la IA
 
-Necesitas una API key de Anthropic: <https://console.anthropic.com> → *API Keys* → *Create Key* (se cobra por uso; cada canción cuesta centavos).
+**Opción gratis — Google Gemini (recomendada):**
+1. Entra a <https://aistudio.google.com> con tu cuenta de Google.
+2. Toca **Get API key → Create API key** y cópiala (empieza con `AIza`). No pide tarjeta.
+3. En la app: ⚙️ → **Gemini (gratis)** → pega la clave → Guardar.
 
-**Opción A — solo para ti (rápida):** abre la app, toca ⚙️, elige *Mi API key* y pégala. Se guarda únicamente en tu celular.
+El plan gratis tiene un límite de solicitudes por minuto y por día; si lo alcanzas, la app te avisa y solo esperas. Google puede usar lo que se envía en el plan gratis para mejorar sus productos.
 
-> ⚠️ No la uses así si vas a compartir el enlace con otras personas: cualquiera con acceso a tu celular o navegador podría verla.
+**Opción de pago — Claude API:** clave de <https://console.anthropic.com> (empieza con `sk-ant-`, requiere saldo prepago). En ⚙️ elige **Claude API**.
 
-**Opción B — para compartirla (recomendada):**
-
-1. Entra a <https://dash.cloudflare.com> → **Workers & Pages → Create → Worker**, ponle `mi-estudio` y **Deploy**.
-2. **Edit code**, borra todo, pega el contenido de `worker.js` y **Deploy**.
-3. **Settings → Variables and Secrets**:
-   - `ANTHROPIC_API_KEY` (tipo *Secret*) = tu API key
-   - `ALLOWED_ORIGIN` (tipo *Text*) = `https://TU-USUARIO.github.io` (sin `/mi-estudio` y sin `/` al final)
-4. Copia la URL del Worker (`https://mi-estudio.TU-USUARIO.workers.dev`).
-5. En la app: ⚙️ → *Mi servidor (Worker)* → pega la URL → Guardar.
-
-En la consola de Anthropic pon un **límite de gasto mensual** (*Settings → Limits*) para que nunca se pase.
+**Para compartir la app con otras personas (Claude):** usa `worker.js` en Cloudflare Workers:
+1. <https://dash.cloudflare.com> → **Workers & Pages → Create → Worker** → **Deploy**.
+2. **Edit code**, pega `worker.js` → **Deploy**.
+3. **Settings → Variables and Secrets**: `ANTHROPIC_API_KEY` (Secret) y `ALLOWED_ORIGIN` = `https://TU-USUARIO.github.io`.
+4. En la app: ⚙️ → **Mi servidor** → pega la URL del Worker.
 
 ## 3. Instalar en el celular
 
